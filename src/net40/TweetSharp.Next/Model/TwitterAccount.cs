@@ -11,7 +11,7 @@ namespace TweetSharp
 #if !SILVERLIGHT
     [Serializable]
 #endif
-#if !Smartphone && !NET20
+#if !Smartphone && !NET20 
     [DataContract]
 #endif
     [JsonObject(MemberSerialization.OptIn)]

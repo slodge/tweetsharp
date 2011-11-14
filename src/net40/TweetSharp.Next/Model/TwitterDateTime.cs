@@ -4,8 +4,9 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.Serialization;
 using System.Threading;
+using System.Reflection;
 
-#if Smartphone
+#if Smartphone && !MonoDroid
 using TweetSharp.Core.Attributes;
 #endif
 

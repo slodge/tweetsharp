@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-#if Smartphone
+#if Smartphone && !MonoDroid
 using TweetSharp.Core.Attributes;
 #endif
 

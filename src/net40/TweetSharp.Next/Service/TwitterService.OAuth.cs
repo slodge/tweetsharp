@@ -149,7 +149,7 @@ namespace TweetSharp
             return new Uri("https://api.twitter.com/oauth/authenticate?oauth_token=" + oauth.Token + "&oauth_callback=" + callback);
         }
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !MonoDroid
         public virtual OAuthRequestToken GetRequestToken(string callback)
         {
             var args = new FunctionArguments
@@ -254,7 +254,7 @@ namespace TweetSharp
         }
 #endif
 
-#if WINDOWS_PHONE
+#if WINDOWS_PHONE || MonoDroid
         public virtual void GetRequestToken(string callback, Action<OAuthRequestToken, TwitterResponse> action)
         {
             var args = new FunctionArguments

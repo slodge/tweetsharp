@@ -349,7 +349,7 @@ namespace TweetSharp.Serialization
 
         private static void TraceException(Exception ex, Type type, string content)
         {
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !MonoDroid
             Trace.TraceError(string.Concat("TweetSharp: Could not parse content into 'IEnumerable<", type.Name, ">' : '", content));
             Trace.TraceError(ex.Message);
             Trace.TraceError(ex.StackTrace);

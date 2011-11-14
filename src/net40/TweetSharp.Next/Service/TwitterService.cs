@@ -33,7 +33,7 @@ namespace TweetSharp
         private readonly RestClient _client;
 
         private readonly JsonSerializer _json;
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !MonoDroid
         private readonly XmlSerializer _xml;
 #endif
 
@@ -61,7 +61,7 @@ namespace TweetSharp
                 {
                     case TwitterServiceFormat.Json:
                         return _json;
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !MonoDroid
                     case TwitterServiceFormat.Xml:
                         return _xml;
 #endif
@@ -84,7 +84,7 @@ namespace TweetSharp
                 {
                     case TwitterServiceFormat.Json:
                         return _json;
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !MonoDroid
                     case TwitterServiceFormat.Xml:
                         return _xml;
 #endif
@@ -144,7 +144,7 @@ namespace TweetSharp
         public TwitterService()
         {
             _json = new JsonSerializer();
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !MonoDroid
             _xml = new XmlSerializer();
 #endif
 
@@ -291,7 +291,7 @@ namespace TweetSharp
             {
                 case TwitterServiceFormat.Json:
                     return _json.DeserializeContent<T>(content);
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !MonoDroid
                 case TwitterServiceFormat.Xml:
                     return _xml.DeserializeContent<T>(content);
 #endif
@@ -323,7 +323,7 @@ namespace TweetSharp
                             _client.Deserializer = _json;
                         }
                         break;
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !MonoDroid
                     case TwitterServiceFormat.Xml:
 
                         if(_customSerializer == null)
